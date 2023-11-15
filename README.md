@@ -54,7 +54,9 @@ make package/luci-app-alist/compile V=s
 ```
 ### 该源码已修改项目:
 修改默认ip：192.168.2.1（原192.168.100.1）
+
 密码：password
 
 lan口修改为：eth0
+
 支持bcm57810万兆网卡  改2.5G速率 支持：i226v 2.5G网卡
