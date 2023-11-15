@@ -57,6 +57,6 @@ make package/luci-app-alist/compile V=s
 
 密码：password
 
-lan口修改为：eth0
+lan口修改为：eth0   wan口为：eth3
 
 支持bcm57810万兆网卡  改2.5G速率 支持：i226v 2.5G网卡
