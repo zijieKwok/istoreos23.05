@@ -2,7 +2,6 @@
 源代码来源于：[Github iStoreOS](https://www.github.com/istoreos/istoreos)
 
 ![首页](https://doc.linkease.com/assets/img/geek-preview1.9987f6a0.jpg)
-![软件中心](https://doc.linkease.com/assets/img/geek-istore-preview2.5e9c0323.jpg)
 
 ### 编译命令如下:
 1、使用Ubuntu 20.04 LTS x64进行编译
