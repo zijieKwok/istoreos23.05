@@ -1,5 +1,5 @@
 # iStoreOS23.05 源代码
-源代码来源于：[Github iStoreOS](https://www.github.com/istoreos/istoreos)
+#### 源代码来源于：[Github iStoreOS](https://www.github.com/istoreos/istoreos)  在这鸣谢iStoreOS团队的打造
 
 ![首页](https://doc.linkease.com/assets/img/geek-preview1.9987f6a0.jpg)
 
