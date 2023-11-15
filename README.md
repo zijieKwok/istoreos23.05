@@ -3,6 +3,8 @@
 
 ![首页](https://doc.linkease.com/assets/img/geek-preview1.9987f6a0.jpg)
 
+### 固件版本：iStoreOS 23.05-SNAPSHOT
+### 该源码内核版本：5.15.125
 ### 编译命令如下:
 1、使用Ubuntu 20.04 LTS x64进行编译
 
