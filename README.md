@@ -7,7 +7,7 @@
 ### 固件版本：iStoreOS 23.05-SNAPSHOT
 ### 该源码内核版本：5.15.125
 ## 编译命令如下:
-#### 1、使用Ubuntu 20.04 LTS x64进行编译
+#### 1、使用Ubuntu 20.04 LTS x64进行编译（不要以root用户权限进行编译）
 
 命令行输入 sudo apt-get update 
 然后输入
