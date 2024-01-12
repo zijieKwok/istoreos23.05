@@ -1,117 +1,62 @@
-iStoreOS 是入门级的路由系统，也是入门级的 NAS 系统，
-基于原版 OpenWRT，在 ARS2 上经过长期迭代，最终开放适配到多个硬件平台
+# iStoreOS23.05 源代码
+#### 源代码来源于：[Github iStoreOS](https://www.github.com/istoreos/istoreos)
+#### 在这鸣谢iStoreOS团队的打造
 
-更多信息请参阅 https://github.com/istoreos
+![首页](https://doc.linkease.com/assets/img/geek-preview1.9987f6a0.jpg)
 
+### 固件版本：iStoreOS 23.05-SNAPSHOT
+### 该源码内核版本：5.15.139
+## 编译命令如下:
+#### 1、使用Ubuntu 20.04 LTS x64进行编译（不要以root用户权限进行编译）
 
-以下是 OpenWRT 原始的 README
---------
-
-![OpenWrt logo](include/logo.png)
-
-OpenWrt Project is a Linux operating system targeting embedded devices. Instead
-of trying to create a single, static firmware, OpenWrt provides a fully
-writable filesystem with package management. This frees you from the
-application selection and configuration provided by the vendor and allows you
-to customize the device through the use of packages to suit any application.
-For developers, OpenWrt is the framework to build an application without having
-to build a complete firmware around it; for users this means the ability for
-full customization, to use the device in ways never envisioned.
-
-Sunshine!
-
-## Download
-
-Built firmware images are available for many architectures and come with a
-package selection to be used as WiFi home router. To quickly find a factory
-image usable to migrate from a vendor stock firmware to OpenWrt, try the
-*Firmware Selector*.
-
-* [OpenWrt Firmware Selector](https://firmware-selector.openwrt.org/)
-
-If your device is supported, please follow the **Info** link to see install
-instructions or consult the support resources listed below.
-
-## 
-
-An advanced user may require additional or specific package. (Toolchain, SDK, ...) For everything else than simple firmware download, try the wiki download page:
-
-* [OpenWrt Wiki Download](https://openwrt.org/downloads)
-
-## Development
-
-To build your own firmware you need a GNU/Linux, BSD or MacOSX system (case
-sensitive filesystem required). Cygwin is unsupported because of the lack of a
-case sensitive file system.
-
-### Requirements
-
-You need the following tools to compile OpenWrt, the package names vary between
-distributions. A complete list with distribution specific packages is found in
-the [Build System Setup](https://openwrt.org/docs/guide-developer/build-system/install-buildsystem)
-documentation.
+命令行输入 sudo apt-get update 
+然后输入
 
 ```
-binutils bzip2 diff find flex gawk gcc-6+ getopt grep install libc-dev libz-dev
-make4.1+ perl python3.6+ rsync subversion unzip which
+sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+
+```
+#### 2、使用命令下载源代码，然后 cd istoreos23.05 进入目录
+```
+git clone https://github.com/zijieKwok/istoreos.git
+
 ```
 
-### Quickstart
+#### 3、复制以下代码（进入编译选项）
+```
+./scripts/feeds update -a
+./scripts/feeds install -a
+make menuconfig
+```
+#### 4、下载dl库（国内请尽量全局科学上网）
+```
+make download -j8
 
-1. Run `./scripts/feeds update -a` to obtain all the latest package definitions
-   defined in feeds.conf / feeds.conf.default
+```
+#### 5、输入以下代码开始编译 （-j1 后面是线程数。第一次编译推荐用单线程）即可开始编译你要的固件了。
+```
+make V=s -j1
 
-2. Run `./scripts/feeds install -a` to install symlinks for all obtained
-   packages into package/feeds/
+```
+#### 6、第二次编译命令如下：（-j4 后面是线程数。第二次编译按你电脑的CPU多少线程更改）
+```
+./scripts/feeds update -a
+./scripts/feeds install -a
+make defconfig
+make download -j8
+make V=s -j4
+```
+#### 7、单独编译ipk插件命令（需要添加插件源码到istoreos23.05/package目录下cd istoreos23.05）例如：以下
+```
+make package/luci-app-alist/compile V=s
+```
+### 该源码已修改项目:
+（原192.168.100.1）已修改以下ip
 
-3. Run `make menuconfig` to select your preferred configuration for the
-   toolchain, target system & firmware packages.
+默认ip：192.168.2.1
 
-4. Run `make` to build your firmware. This will download all sources, build the
-   cross-compile toolchain and then cross-compile the GNU/Linux kernel & all chosen
-   applications for your target system.
+密码：password
 
-### Related Repositories
+wan口：eth3 （原默认：eth0）
 
-The main repository uses multiple sub-repositories to manage packages of
-different categories. All packages are installed via the OpenWrt package
-manager called `opkg`. If you're looking to develop the web interface or port
-packages to OpenWrt, please find the fitting repository below.
-
-* [LuCI Web Interface](https://github.com/openwrt/luci): Modern and modular
-  interface to control the device via a web browser.
-
-* [OpenWrt Packages](https://github.com/openwrt/packages): Community repository
-  of ported packages.
-
-* [OpenWrt Routing](https://github.com/openwrt/routing): Packages specifically
-  focused on (mesh) routing.
-
-* [OpenWrt Video](https://github.com/openwrt/video): Packages specifically
-  focused on display servers and clients (Xorg and Wayland).
-
-## Support Information
-
-For a list of supported devices see the [OpenWrt Hardware Database](https://openwrt.org/supported_devices)
-
-### Documentation
-
-* [Quick Start Guide](https://openwrt.org/docs/guide-quick-start/start)
-* [User Guide](https://openwrt.org/docs/guide-user/start)
-* [Developer Documentation](https://openwrt.org/docs/guide-developer/start)
-* [Technical Reference](https://openwrt.org/docs/techref/start)
-
-### Support Community
-
-* [Forum](https://forum.openwrt.org): For usage, projects, discussions and hardware advise.
-* [Support Chat](https://webchat.oftc.net/#openwrt): Channel `#openwrt` on **oftc.net**.
-
-### Developer Community
-
-* [Bug Reports](https://bugs.openwrt.org): Report bugs in OpenWrt
-* [Dev Mailing List](https://lists.openwrt.org/mailman/listinfo/openwrt-devel): Send patches
-* [Dev Chat](https://webchat.oftc.net/#openwrt-devel): Channel `#openwrt-devel` on **oftc.net**.
-
-## License
-
-OpenWrt is licensed under GPL-2.0
+支持bcm57810万兆网卡  改2.5G速率 支持：i226v 2.5G网卡
