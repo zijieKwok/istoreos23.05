@@ -1,11 +1,11 @@
-# iStoreOS23.05 源代码
+# iStoreOS 源代码
 #### 源代码来源于：[Github iStoreOS](https://www.github.com/istoreos/istoreos)
 #### 在这鸣谢iStoreOS团队的打造
 
 ![首页](https://doc.linkease.com/assets/img/geek-preview1.9987f6a0.jpg)
 
-### 固件版本：iStoreOS 23.05-SNAPSHOT
-### 该源码内核版本：5.15.139
+### 固件版本：iStoreOS 22.03.6-SNAPSHOT
+### 该源码内核版本：5.10.206
 ## 编译命令如下:
 #### 1、使用Ubuntu 20.04 LTS x64进行编译（不要以root用户权限进行编译）
 
@@ -16,7 +16,7 @@
 sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
 
 ```
-#### 2、使用命令下载源代码，然后 cd istoreos23.05 进入目录
+#### 2、使用命令下载源代码，然后 cd istoreos 进入目录
 ```
 git clone https://github.com/zijieKwok/istoreos.git
 
